@@ -14,10 +14,10 @@ function AuroraJS() {
   </ThemeProvider>);
 }
 
-export default AuroraJS;
 export {
   Theme,
   Route,
+  AuroraJS,
   useTheme,
   useRoutes,
 };
