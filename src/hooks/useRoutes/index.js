@@ -54,8 +54,6 @@ class RouteClass {
         return this;
     }
 }
-
-
 function Route(){
     const route = new RouteClass(...arguments);
     Provider.routes.push(route);
@@ -64,8 +62,6 @@ function Route(){
 Route.redirect = (from,to)=>(Route(from).redirect(to));
 Route.fallback = fallback=>(Provider.fallback=fallback);
 Route.find = (path)=>Provider.routes.filter(route=>route.match(path))[0];
-
-
 function useRoutes(){ return Provider; }
 
 export default useRoutes;
