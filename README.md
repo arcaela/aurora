@@ -1,6 +1,6 @@
 # aurora.js for ReactJS App
 
-This folder was bootstrapped with [aurora.js for React](https://github.com/arcaela/aurora.js).
+This folder was bootstrapped with [aurora.js for React](https://github.com/arcaela/aurora/core).
 
 ## ¿Why aurora.js?
 
