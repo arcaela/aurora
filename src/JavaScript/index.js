@@ -1,10 +1,10 @@
-import './Prototype';
-import './helpers';
 import AsyncWorker from './AsyncWorker';
 import AsyncXHR from './AsyncXHR';
 import AwaitPromises from './AwaitPromises';
-import Collection from './Collection';
 import BrowserDB from './BrowserDB';
+import Collection from './Collection';
+import './Prototype';
+import './helpers';
 
 export {
     AsyncWorker,

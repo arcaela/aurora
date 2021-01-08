@@ -2,9 +2,9 @@ function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'defau
 
 var React = require('react');
 var React__default = _interopDefault(React);
-var reactRouterDom = require('react-router-dom');
 var core = require('@material-ui/core');
-var pathToRegex = _interopDefault(require('path-to-regex'));
+var reactRouterDom = require('react-router-dom');
+require('path-to-regex');
 
 var Theme = {
   $all: {},
@@ -36,45 +36,6 @@ function useTheme() {
   };
 
   return Theme;
-}
-
-function _setPrototypeOf(o, p) {
-  _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) {
-    o.__proto__ = p;
-    return o;
-  };
-
-  return _setPrototypeOf(o, p);
-}
-
-function _isNativeReflectConstruct() {
-  if (typeof Reflect === "undefined" || !Reflect.construct) return false;
-  if (Reflect.construct.sham) return false;
-  if (typeof Proxy === "function") return true;
-
-  try {
-    Date.prototype.toString.call(Reflect.construct(Date, [], function () {}));
-    return true;
-  } catch (e) {
-    return false;
-  }
-}
-
-function _construct(Parent, args, Class) {
-  if (_isNativeReflectConstruct()) {
-    _construct = Reflect.construct;
-  } else {
-    _construct = function _construct(Parent, args, Class) {
-      var a = [null];
-      a.push.apply(a, args);
-      var Constructor = Function.bind.apply(Parent, a);
-      var instance = new Constructor();
-      if (Class) _setPrototypeOf(instance, Class.prototype);
-      return instance;
-    };
-  }
-
-  return _construct.apply(null, arguments);
 }
 
 var Provider = {
@@ -117,71 +78,6 @@ function RouteComponent() {
   return RouteSelected.render(request);
 }
 
-var RouteClass = /*#__PURE__*/function () {
-  function RouteClass(path, render) {
-    if (render === void 0) {
-      render = null;
-    }
-
-    this.Provider = Provider;
-    this.$props = {};
-
-    this.match = function () {};
-
-    return this.path(path).render(render);
-  }
-
-  var _proto = RouteClass.prototype;
-
-  _proto.path = function path(_path) {
-    this.$props.path = _path;
-
-    this.match = function (pathStr) {
-      return new pathToRegex(_path).match(pathStr);
-    };
-
-    return this;
-  };
-
-  _proto.render = function render(_render) {
-    this.$props.render = _render;
-    this.$props.redirect = null;
-    return this;
-  };
-
-  _proto.redirect = function redirect(_redirect) {
-    this.$props.redirect = _redirect;
-    return this;
-  };
-
-  return RouteClass;
-}();
-
-function Route() {
-  var route = _construct(RouteClass, Array.prototype.slice.call(arguments));
-
-  Provider.routes.push(route);
-  return route;
-}
-
-Route.redirect = function (from, to) {
-  return Route(from).redirect(to);
-};
-
-Route.fallback = function (fallback) {
-  return Provider.fallback = fallback;
-};
-
-Route.find = function (path) {
-  return Provider.routes.filter(function (route) {
-    return route.match(path);
-  })[0];
-};
-
-function useRoutes() {
-  return Provider;
-}
-
 function AuroraJS() {
   var _useTheme = useTheme(),
       theme = _useTheme.theme;
@@ -191,9 +87,5 @@ function AuroraJS() {
   }, /*#__PURE__*/React__default.createElement(core.CssBaseline, null), /*#__PURE__*/React__default.createElement(reactRouterDom.BrowserRouter, null, /*#__PURE__*/React__default.createElement(RouteComponent, null)));
 }
 
-exports.Route = Route;
-exports.Theme = Theme;
-exports.default = AuroraJS;
-exports.useRoutes = useRoutes;
-exports.useTheme = useTheme;
+module.exports = AuroraJS;
 //# sourceMappingURL=index.js.map

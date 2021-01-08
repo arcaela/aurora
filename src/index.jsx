@@ -1,10 +1,9 @@
 import React from 'react'
+import useTheme from './hooks/useTheme'
 import { BrowserRouter } from 'react-router-dom';
-import useTheme, { Theme } from './hooks/useTheme'
 import { CssBaseline, ThemeProvider } from '@material-ui/core';
-import useRoutes, { Route, RouteComponent } from './hooks/useRoutes';
-
-function AuroraJS() {
+import { RouteComponent } from './hooks/useRoutes';
+export default function AuroraJS() {
   const { theme } = useTheme();
   return (<ThemeProvider theme={theme}>
     <CssBaseline />
@@ -13,11 +12,3 @@ function AuroraJS() {
     </BrowserRouter>
   </ThemeProvider>);
 }
-
-export {
-  Theme,
-  Route,
-  AuroraJS,
-  useTheme,
-  useRoutes,
-};
