@@ -1,0 +1,25 @@
+{
+  "short_name": "Aurora",
+  "name": "Aurora WebApp",
+  "icons": [
+    {
+      "src": "/images/16x16.png",
+      "sizes": "16x16",
+      "type": "image/png"
+    },
+    {
+      "src": "/images/192x192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/images/512x512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#212121",
+  "background_color": "#212121"
+}

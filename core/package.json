@@ -1,6 +1,6 @@
 {
-  "name": "@arcaela/aurora",
-  "version": "3.6.3",
+  "name": "@aurora/core",
+  "version": "1.0.0",
   "description": "The aurora.js is tools for Webs Apps | Build with ReactJS.",
   "author": "arcaela.reyes@gmail.com",
   "license": "MIT",
@@ -15,17 +15,17 @@
     "node": ">=10"
   },
   "scripts": {
-    "update-publish": "npm version patch && npm publish --access=public",
-    "build": "microbundle-crl --no-compress --format modern,cjs",
-    "start": "microbundle-crl watch --no-compress --format modern,cjs",
     "prepare": "run-s build",
-    "test": "run-s test:unit test:lint test:build",
-    "test:build": "run-s build",
+    "start": "microbundle-crl watch --no-compress --format modern,cjs",
+    "build": "microbundle-crl --no-compress --format modern,cjs",
+    "update-publish": "npm version patch && npm publish --access=public",
     "test:lint": "eslint .",
-    "test:unit": "cross-env CI=1 react-scripts test --env=jsdom",
+    "test:build": "run-s build",
+    "deploy": "gh-pages -d example/build",
     "test:watch": "react-scripts test --env=jsdom",
+    "test": "run-s test:unit test:lint test:build",
     "predeploy": "cd example && npm install && npm run build",
-    "deploy": "gh-pages -d example/build"
+    "test:unit": "cross-env CI=1 react-scripts test --env=jsdom"
   },
   "peerDependencies": {
     "react": "^16.0.0"
@@ -61,6 +61,8 @@
     "react-scripts": "^3.4.1"
   },
   "files": [
-    "src"
+    "src/@firebase",
+    "src/hooks",
+    "src/JavaScript"
   ]
 }

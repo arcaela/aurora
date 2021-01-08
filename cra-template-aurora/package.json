@@ -1,0 +1,26 @@
+{
+  "name": "cra-template-aurora",
+  "version": "7.0.64",
+  "keywords": [
+    "react",
+    "template",
+    "create-react-app",
+    "cra-template-aurora"
+  ],
+  "description": "The aurora template for Create React App.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/arcaela/cra-template-aurora.git"
+  },
+  "license": "ISC",
+  "engines": {
+    "node": ">=10"
+  },
+  "bugs": {
+    "url": "https://github.com/arcaela/cra-template-aurora/issues"
+  },
+  "files": [
+    "template",
+    "template.json"
+  ]
+}
