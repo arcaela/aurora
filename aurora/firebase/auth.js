@@ -63,33 +63,3 @@ FirebaseApp.auth().onAuthStateChanged(async user => {
   Auth.trigger('statusChanged', Auth.user);
 });
 export default Auth;
-console.clear();
-
-let Learn = spells => spells.split('').reduce((_, spell) => {
-  _.tmp += spell;
-
-  if (_.tmp.length === 2) {
-    _.words.push(_.tmp + spell);
-
-    _.tmp = '';
-  }
-
-  return _;
-}, {
-  tmp: '',
-  words: []
-}).words.sort(() => .5 - Math.random()).join(' ');
-
-"mamemimomupapepipopu".split("").reduce((_, spell) => {
-  if (_.tmp.length) {
-    _.words.push(_.tmp + spell);
-
-    _.tmp = '';
-  } else _.tmp += spell;
-
-  let c = _.tmp.length ? _.words.push(_.tmp + spell) && delete _.tmp : _.tmp += spell;
-  return _;
-}, {
-  words: [],
-  tmp: ''
-}).words;

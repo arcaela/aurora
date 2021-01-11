@@ -1,11 +1,9 @@
 import React from 'react'
+import { useTheme } from './useTheme';
+import { RouteComponent } from './useRoutes';
 import { BrowserRouter } from 'react-router-dom';
 import { CssBaseline, ThemeProvider } from '@material-ui/core';
-
-import firebase from './firebase/index'
-import { Theme, Route, useTheme, Provider, useRoutes, RouteComponent, } from './hooks'
-
-function AuroraJS() {
+export default function AuroraJS() {
   const { theme } = useTheme();
   return (<ThemeProvider theme={theme}>
     <CssBaseline />
@@ -13,10 +11,4 @@ function AuroraJS() {
       <RouteComponent />
     </BrowserRouter>
   </ThemeProvider>);
-}
-
-export {
-  AuroraJS,
-  firebase,
-  Theme, Route, useTheme, Provider, useRoutes, RouteComponent,
 }

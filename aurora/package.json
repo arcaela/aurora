@@ -1,6 +1,6 @@
 {
   "name": "@arcaela/aurora",
-  "version": "1.0.1",
+  "version": "1.0.9",
   "description": "The aurora.js is a library for Webs Apps | Build with ReactJS.",
   "author": "arcaela.reyes@gmail.com",
   "license": "ISC",
@@ -8,16 +8,19 @@
     "type": "git",
     "url": "git+https://github.com/arcaela/aurora.git"
   },
-  "main": "./src/_esm/index.js",
-  "exports": {
-    "./": "./src/_esm/"
+  "main": "./index.js",
+  "publishConfig": {
+    "access": "public"
   },
+  "files": [
+    "*"
+  ],
   "engines": {
     "node": ">=10"
   },
   "scripts": {
     "update-publish": "npm version patch && npm publish --access=public",
-    "prepare": "npx babel ./src/ --out-dir ./src/_esm/  --ignore ./src/_esm/",
+    "prepare": "npx babel ./exports/ --out-dir ./",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "bugs": {
