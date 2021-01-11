@@ -8,6 +8,7 @@ module.exports = function chunk(size) {
     do {
       const items = this.items.slice(index, index + size);
       const collection = new this.constructor(items);
+
       chunks.push(collection);
       index += size;
     } while (index < this.items.length);
@@ -17,7 +18,9 @@ module.exports = function chunk(size) {
     do {
       const keysOfChunk = keys.slice(index, index + size);
       const collection = new this.constructor({});
+
       keysOfChunk.forEach(key => collection.put(key, this.items[key]));
+
       chunks.push(collection);
       index += size;
     } while (index < keys.length);

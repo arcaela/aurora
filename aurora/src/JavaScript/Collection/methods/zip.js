@@ -8,5 +8,6 @@ module.exports = function zip(array) {
   }
 
   const collection = this.items.map((item, index) => new this.constructor([item, values[index]]));
+
   return new this.constructor(collection);
 };

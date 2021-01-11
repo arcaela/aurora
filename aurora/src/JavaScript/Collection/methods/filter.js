@@ -5,7 +5,8 @@ function falsyValue(item) {
     if (item.length) {
       return false;
     }
-  } else if (item !== undefined && item !== null && typeof item === 'object') {
+  } else if (item !== undefined && item !== null
+    && typeof item === 'object') {
     if (Object.keys(item).length) {
       return false;
     }
@@ -18,7 +19,7 @@ function falsyValue(item) {
 
 function filterObject(func, items) {
   const result = {};
-  Object.keys(items).forEach(key => {
+  Object.keys(items).forEach((key) => {
     if (func) {
       if (func(items[key], key)) {
         result[key] = items[key];
@@ -27,6 +28,7 @@ function filterObject(func, items) {
       result[key] = items[key];
     }
   });
+
   return result;
 }
 
@@ -34,12 +36,9 @@ function filterArray(func, items) {
   if (func) {
     return items.filter(func);
   }
-
   const result = [];
-
   for (let i = 0; i < items.length; i += 1) {
     const item = items[i];
-
     if (!falsyValue(item)) {
       result.push(item);
     }
@@ -51,7 +50,6 @@ function filterArray(func, items) {
 module.exports = function filter(fn) {
   const func = fn || false;
   let filteredItems = null;
-
   if (Array.isArray(this.items)) {
     filteredItems = filterArray(func, this.items);
   } else {

@@ -10,6 +10,11 @@ module.exports = function diffKeys(object) {
   }
 
   const objectKeys = Object.keys(objectToDiff);
-  const remainingKeys = Object.keys(this.items).filter(item => objectKeys.indexOf(item) === -1);
-  return new this.constructor(this.items).only(remainingKeys);
+
+  const remainingKeys = Object.keys(this.items)
+    .filter(item => objectKeys.indexOf(item) === -1);
+
+  return new this.constructor(this.items).only(
+    remainingKeys,
+  );
 };

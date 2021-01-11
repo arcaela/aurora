@@ -3,8 +3,10 @@
 module.exports = function replaceRecursive(items) {
   const replace = (target, source) => {
     const replaced = Object.assign({}, target);
+
     const mergedKeys = Object.keys(Object.assign({}, target, source));
-    mergedKeys.forEach(key => {
+
+    mergedKeys.forEach((key) => {
       if (!Array.isArray(source[key]) && typeof source[key] === 'object') {
         replaced[key] = replace(target[key], source[key]);
       } else if (target[key] === undefined && source[key] !== undefined) {
@@ -27,6 +29,7 @@ module.exports = function replaceRecursive(items) {
         }
       }
     });
+
     return replaced;
   };
 

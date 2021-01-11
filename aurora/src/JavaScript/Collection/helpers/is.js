@@ -14,5 +14,5 @@ module.exports = {
   /**
    * @returns {boolean}
    */
-  isFunction: item => typeof item === 'function'
+  isFunction: item => typeof item === 'function',
 };

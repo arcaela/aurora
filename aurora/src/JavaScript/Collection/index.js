@@ -1,10 +1,12 @@
-(function (window, plugin) {
+(function(window, plugin){
   "use strict";
-
-  let name = "Collectable";
-  if (typeof module === 'object' && module.exports) module.exports = plugin(window);else if (typeof exports === 'object' && typeof exports.nodeName !== 'string') exports = plugin(window);else if (typeof define === 'function' && define.amd) define([name], [], plugin(window));else window[name] = plugin(window);
-})(typeof window !== "undefined" ? window : this, function (window) {
-  ////////////////////////////////////////
+  let name="Collectable";
+  if(typeof module === 'object' && module.exports) module.exports = plugin(window);
+  else if (typeof exports === 'object' && typeof exports.nodeName !== 'string') exports = plugin(window);
+  else if (typeof define === 'function' && define.amd) define([name], [],plugin(window));
+  else window[name] = plugin(window);
+})((typeof window!=="undefined"?window:this),function(window){
+////////////////////////////////////////
   let Collectable = function Collectable(collection) {
     if (collection !== undefined && !Array.isArray(collection) && typeof collection !== 'object') {
       this.items = [collection];
@@ -13,18 +15,12 @@
     } else {
       this.items = collection || [];
     }
-  };
-
-  if (typeof Symbol !== 'undefined') {
+  }
+  if (typeof Symbol !== 'undefined'){
     const SymbolIterator = require('./methods/symbol.iterator');
-
     Collectable.prototype[Symbol.iterator] = SymbolIterator;
   }
-
-  Collectable.prototype.toJSON = function toJSON() {
-    return this.items;
-  };
-
+  Collectable.prototype.toJSON = function toJSON() { return this.items; };
   Collectable.prototype.all = require('./methods/all');
   Collectable.prototype.average = require('./methods/average');
   Collectable.prototype.avg = require('./methods/average');
@@ -135,5 +131,6 @@
   Collectable.prototype.whereNotIn = require('./methods/whereNotIn');
   Collectable.prototype.wrap = require('./methods/wrap');
   Collectable.prototype.zip = require('./methods/zip');
-  return items => new Collectable(items); ////////////////////////////////////////
+  return (items)=>(new Collectable(items));
+////////////////////////////////////////
 });

@@ -1,4 +1,6 @@
+
 'use strict';
+
 /**
  * Values helper
  *
@@ -7,7 +9,6 @@
  * @returns {*}
  * @param items
  */
-
 module.exports = function values(items) {
   const valuesArray = [];
 

@@ -1,13 +1,11 @@
 'use strict';
 
 const nestedValue = require('../helpers/nestedValue');
-
-const {
-  isFunction
-} = require('../helpers/is');
+const { isFunction } = require('../helpers/is');
 
 module.exports = function groupBy(key) {
   const collection = {};
+
   this.items.forEach((item, index) => {
     let resolvedKey;
 
@@ -25,5 +23,6 @@ module.exports = function groupBy(key) {
 
     collection[resolvedKey].push(item);
   });
+
   return new this.constructor(collection);
 };

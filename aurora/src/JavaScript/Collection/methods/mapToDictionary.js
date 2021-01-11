@@ -2,6 +2,7 @@
 
 module.exports = function mapToDictionary(fn) {
   const collection = {};
+
   this.items.forEach((item, k) => {
     const [key, value] = fn(item, k);
 
@@ -11,5 +12,6 @@ module.exports = function mapToDictionary(fn) {
       collection[key].push(value);
     }
   });
+
   return new this.constructor(collection);
 };

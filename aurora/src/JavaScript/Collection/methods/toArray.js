@@ -19,9 +19,11 @@ module.exports = function toArray() {
 
   if (Array.isArray(this.items)) {
     const collection = [];
-    this.items.forEach(items => {
+
+    this.items.forEach((items) => {
       iterate(items, collection);
     });
+
     return collection;
   }
 

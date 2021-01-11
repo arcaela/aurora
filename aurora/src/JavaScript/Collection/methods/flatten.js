@@ -1,12 +1,10 @@
 'use strict';
 
-const {
-  isArray,
-  isObject
-} = require('../helpers/is');
+const { isArray, isObject } = require('../helpers/is');
 
 module.exports = function flatten(depth) {
   let flattenDepth = depth || Infinity;
+
   let fullyFlattened = false;
   let collection = [];
 
@@ -14,11 +12,11 @@ module.exports = function flatten(depth) {
     collection = [];
 
     if (isArray(items)) {
-      items.forEach(item => {
+      items.forEach((item) => {
         if (isArray(item)) {
           collection = collection.concat(item);
         } else if (isObject(item)) {
-          Object.keys(item).forEach(property => {
+          Object.keys(item).forEach((property) => {
             collection = collection.concat(item[property]);
           });
         } else {
@@ -26,11 +24,11 @@ module.exports = function flatten(depth) {
         }
       });
     } else {
-      Object.keys(items).forEach(property => {
+      Object.keys(items).forEach((property) => {
         if (isArray(items[property])) {
           collection = collection.concat(items[property]);
         } else if (isObject(items[property])) {
-          Object.keys(items[property]).forEach(prop => {
+          Object.keys(items[property]).forEach((prop) => {
             collection = collection.concat(items[property][prop]);
           });
         } else {
@@ -41,6 +39,7 @@ module.exports = function flatten(depth) {
 
     fullyFlattened = collection.filter(item => isObject(item));
     fullyFlattened = fullyFlattened.length === 0;
+
     flattenDepth -= 1;
   };
 

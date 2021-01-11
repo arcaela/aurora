@@ -12,11 +12,13 @@ module.exports = function take(length) {
     }
 
     const collection = {};
-    keys.forEach(prop => {
+
+    keys.forEach((prop) => {
       if (slicedKeys.indexOf(prop) !== -1) {
         collection[prop] = this.items[prop];
       }
     });
+
     return new this.constructor(collection);
   }
 

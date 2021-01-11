@@ -2,6 +2,7 @@
 
 module.exports = function mapToGroups(fn) {
   const collection = {};
+
   this.items.forEach((item, key) => {
     const [keyed, value] = fn(item, key);
 
@@ -11,5 +12,6 @@ module.exports = function mapToGroups(fn) {
       collection[keyed].push(value);
     }
   });
+
   return new this.constructor(collection);
 };

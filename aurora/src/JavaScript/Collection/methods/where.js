@@ -1,12 +1,12 @@
 'use strict';
 
 const values = require('../helpers/values');
-
 const nestedValue = require('../helpers/nestedValue');
 
 module.exports = function where(key, operator, value) {
   let comparisonOperator = operator;
   let comparisonValue = value;
+
   const items = values(this.items);
 
   if (operator === undefined || operator === true) {
@@ -22,10 +22,11 @@ module.exports = function where(key, operator, value) {
     comparisonOperator = '===';
   }
 
-  const collection = items.filter(item => {
+  const collection = items.filter((item) => {
     switch (comparisonOperator) {
       case '==':
-        return nestedValue(item, key) === Number(comparisonValue) || nestedValue(item, key) === comparisonValue.toString();
+        return nestedValue(item, key) === Number(comparisonValue)
+          || nestedValue(item, key) === comparisonValue.toString();
 
       default:
       case '===':
@@ -33,7 +34,8 @@ module.exports = function where(key, operator, value) {
 
       case '!=':
       case '<>':
-        return nestedValue(item, key) !== Number(comparisonValue) && nestedValue(item, key) !== comparisonValue.toString();
+        return nestedValue(item, key) !== Number(comparisonValue)
+          && nestedValue(item, key) !== comparisonValue.toString();
 
       case '!==':
         return nestedValue(item, key) !== comparisonValue;
@@ -51,5 +53,6 @@ module.exports = function where(key, operator, value) {
         return nestedValue(item, key) >= comparisonValue;
     }
   });
+
   return new this.constructor(collection);
 };

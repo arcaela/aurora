@@ -8,10 +8,12 @@ module.exports = function diffAssoc(values) {
   }
 
   const collection = {};
-  Object.keys(this.items).forEach(key => {
+
+  Object.keys(this.items).forEach((key) => {
     if (diffValues[key] === undefined || diffValues[key] !== this.items[key]) {
       collection[key] = this.items[key];
     }
   });
+
   return new this.constructor(collection);
 };

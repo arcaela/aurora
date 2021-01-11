@@ -9,18 +9,20 @@ module.exports = function concat(collectionOrArrayOrObject) {
     list = collectionOrArrayOrObject.all();
   } else if (typeof collectionOrArrayOrObject === 'object') {
     list = [];
-    Object.keys(collectionOrArrayOrObject).forEach(property => {
+    Object.keys(collectionOrArrayOrObject).forEach((property) => {
       list.push(collectionOrArrayOrObject[property]);
     });
   }
 
   const collection = clone(this.items);
-  list.forEach(item => {
+
+  list.forEach((item) => {
     if (typeof item === 'object') {
       Object.keys(item).forEach(key => collection.push(item[key]));
     } else {
       collection.push(item);
     }
   });
+
   return new this.constructor(collection);
 };

@@ -8,11 +8,11 @@ module.exports = function reduce(fn, carry) {
   }
 
   if (Array.isArray(this.items)) {
-    this.items.forEach(item => {
+    this.items.forEach((item) => {
       reduceCarry = fn(reduceCarry, item);
     });
   } else {
-    Object.keys(this.items).forEach(key => {
+    Object.keys(this.items).forEach((key) => {
       reduceCarry = fn(reduceCarry, this.items[key], key);
     });
   }

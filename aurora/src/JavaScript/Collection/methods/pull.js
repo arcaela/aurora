@@ -1,8 +1,6 @@
 'use strict';
 
-const {
-  isFunction
-} = require('../helpers/is');
+const { isFunction } = require('../helpers/is');
 
 module.exports = function pull(key, defaultValue) {
   let returnValue = this.items[key] || null;
@@ -16,5 +14,6 @@ module.exports = function pull(key, defaultValue) {
   }
 
   delete this.items[key];
+
   return returnValue;
 };

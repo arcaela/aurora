@@ -4,7 +4,7 @@ module.exports = function duplicates() {
   const occuredValues = [];
   const duplicateValues = {};
 
-  const stringifiedValue = value => {
+  const stringifiedValue = (value) => {
     if (Array.isArray(value) || typeof value === 'object') {
       return JSON.stringify(value);
     }
@@ -23,7 +23,7 @@ module.exports = function duplicates() {
       }
     });
   } else if (typeof this.items === 'object') {
-    Object.keys(this.items).forEach(key => {
+    Object.keys(this.items).forEach((key) => {
       const valueAsString = stringifiedValue(this.items[key]);
 
       if (occuredValues.indexOf(valueAsString) === -1) {

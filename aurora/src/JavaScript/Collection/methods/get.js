@@ -1,8 +1,6 @@
 'use strict';
 
-const {
-  isFunction
-} = require('../helpers/is');
+const { isFunction } = require('../helpers/is');
 
 module.exports = function get(key, defaultValue = null) {
   if (this.items[key] !== undefined) {

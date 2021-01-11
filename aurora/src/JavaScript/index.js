@@ -5,4 +5,11 @@ import BrowserDB from './BrowserDB';
 import Collection from './Collection';
 import './Prototype';
 import './helpers';
-export { AsyncWorker, AsyncXHR, AwaitPromises, Collection, BrowserDB };
+
+export {
+    AsyncWorker,
+    AsyncXHR,
+    AwaitPromises,
+    Collection,
+    BrowserDB
+}

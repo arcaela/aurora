@@ -12,8 +12,10 @@ module.exports = function merge(value) {
   }
 
   const collection = JSON.parse(JSON.stringify(this.items));
-  Object.keys(arrayOrObject).forEach(key => {
+
+  Object.keys(arrayOrObject).forEach((key) => {
     collection[key] = arrayOrObject[key];
   });
+
   return new this.constructor(collection);
 };

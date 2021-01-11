@@ -8,8 +8,8 @@ module.exports = function mode(key) {
     return null;
   }
 
-  this.items.forEach(item => {
-    const tempValues = values.filter(value => {
+  this.items.forEach((item) => {
+    const tempValues = values.filter((value) => {
       if (key !== undefined) {
         return value.key === item[key];
       }
@@ -19,26 +19,21 @@ module.exports = function mode(key) {
 
     if (!tempValues.length) {
       if (key !== undefined) {
-        values.push({
-          key: item[key],
-          count: 1
-        });
+        values.push({ key: item[key], count: 1 });
       } else {
-        values.push({
-          key: item,
-          count: 1
-        });
+        values.push({ key: item, count: 1 });
       }
     } else {
       tempValues[0].count += 1;
-      const {
-        count
-      } = tempValues[0];
+      const { count } = tempValues[0];
 
       if (count > highestCount) {
         highestCount = count;
       }
     }
   });
-  return values.filter(value => value.count === highestCount).map(value => value.key);
+
+  return values
+    .filter(value => value.count === highestCount)
+    .map(value => value.key);
 };

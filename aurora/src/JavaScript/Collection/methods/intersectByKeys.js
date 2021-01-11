@@ -8,10 +8,12 @@ module.exports = function intersectByKeys(values) {
   }
 
   const collection = {};
-  Object.keys(this.items).forEach(key => {
+
+  Object.keys(this.items).forEach((key) => {
     if (intersectKeys.indexOf(key) !== -1) {
       collection[key] = this.items[key];
     }
   });
+
   return new this.constructor(collection);
 };

@@ -7,6 +7,8 @@ module.exports = function intersect(values) {
     intersectValues = values.all();
   }
 
-  const collection = this.items.filter(item => intersectValues.indexOf(item) !== -1);
+  const collection = this.items
+    .filter(item => intersectValues.indexOf(item) !== -1);
+
   return new this.constructor(collection);
 };

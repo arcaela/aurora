@@ -1,22 +1,21 @@
 'use strict';
 
 const values = require('../helpers/values');
-
-const {
-  isFunction
-} = require('../helpers/is');
+const { isFunction } = require('../helpers/is');
 
 module.exports = function contains(key, value) {
   if (value !== undefined) {
     if (Array.isArray(this.items)) {
-      return this.items.filter(items => items[key] !== undefined && items[key] === value).length > 0;
+      return this.items
+        .filter(items => items[key] !== undefined && items[key] === value)
+        .length > 0;
     }
 
     return this.items[key] !== undefined && this.items[key] === value;
   }
 
   if (isFunction(key)) {
-    return this.items.filter((item, index) => key(item, index)).length > 0;
+    return (this.items.filter((item, index) => key(item, index)).length > 0);
   }
 
   if (Array.isArray(this.items)) {
@@ -25,5 +24,6 @@ module.exports = function contains(key, value) {
 
   const keysAndValues = values(this.items);
   keysAndValues.push(...Object.keys(this.items));
+
   return keysAndValues.indexOf(key) !== -1;
 };

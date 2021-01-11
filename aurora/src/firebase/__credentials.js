@@ -5,16 +5,15 @@
 
 */
 const credentials = {
-  "[DEFAULT]": {
-    "appId": String('content'),
-    "apiKey": String('content'),
-    "projectId": String('content'),
-    "authDomain": String('content'),
-    "databaseURL": String('content'),
-    "storageBucket": String('content'),
-    "messagingSenderId": String('content')
-  },
-  auth: null // Es igual a [DEFAULT]
-
-};
+    "[DEFAULT]":{
+        "appId":String('content'),
+        "apiKey":String('content'),
+        "projectId":String('content'),
+        "authDomain":String('content'),
+        "databaseURL":String('content'),
+        "storageBucket":String('content'),
+        "messagingSenderId":String('content'),
+    },
+    auth:null, // Es igual a [DEFAULT]
+}
 export default credentials;

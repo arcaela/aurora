@@ -4,6 +4,7 @@ const values = require('../helpers/values');
 
 module.exports = function shuffle() {
   const items = values(this.items);
+
   let j;
   let x;
   let i;
@@ -16,5 +17,6 @@ module.exports = function shuffle() {
   }
 
   this.items = items;
+
   return this;
 };

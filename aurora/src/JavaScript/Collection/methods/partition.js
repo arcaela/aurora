@@ -5,7 +5,8 @@ module.exports = function partition(fn) {
 
   if (Array.isArray(this.items)) {
     arrays = [new this.constructor([]), new this.constructor([])];
-    this.items.forEach(item => {
+
+    this.items.forEach((item) => {
       if (fn(item) === true) {
         arrays[0].push(item);
       } else {
@@ -14,7 +15,8 @@ module.exports = function partition(fn) {
     });
   } else {
     arrays = [new this.constructor({}), new this.constructor({})];
-    Object.keys(this.items).forEach(prop => {
+
+    Object.keys(this.items).forEach((prop) => {
       const value = this.items[prop];
 
       if (fn(value) === true) {
