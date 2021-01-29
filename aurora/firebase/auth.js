@@ -1,6 +1,6 @@
 import firebase from './index';
 import 'firebase/auth';
-const FirebaseApp = firebase.app('auth');
+const FirebaseApp = firebase.apps.length ? firebase.app('auth') : null;
 /*
     Para hacer uso de 'auth' con firebase es necesario importar sus claves en el archivo de credenciales.
     Una vez incluidas las claves solo se hará uso como variable estática
@@ -19,47 +19,50 @@ const FirebaseApp = firebase.app('auth');
     auth.firebase
 */
 
-const Auth = {
-  firebase,
-  user: null,
+let Watcher = null;
+export default function Auth() {
+  if (FirebaseApp && !Watcher) FirebaseApp.auth().onAuthStateChanged(async user => {
+    let prevUser = Auth.user;
 
-  /* Event Listeners */
-  _watchers: {},
+    if (prevUser && !user || !prevUser && user) {
+      if (user) {
+        Auth.user = user.providerData[0];
+        Auth.trigger('signIn', Auth.user);
+      } else Auth.trigger('signOut', prevUser);
+    }
 
-  on(eName, ...callback) {
-    if (!this._watchers[eName]) this._watchers[eName] = [];
+    Auth.trigger('statusChanged', Auth.user);
+  });
+  return {
+    firebase,
+    user: null,
 
-    this._watchers[eName].push(...callback);
-  },
+    /* Event Listeners */
+    _watchers: {},
 
-  trigger(eName, ...arg) {
-    (this._watchers[eName] || []).forEach(c => c.call(this, ...arg));
-  },
+    on(eName, ...callback) {
+      if (!this._watchers[eName]) this._watchers[eName] = [];
 
-  /* Methods */
-  signOut(...props) {
-    return FirebaseApp.auth().signOut().then(...props);
-  },
+      this._watchers[eName].push(...callback);
+    },
 
-  signIn() {
-    return this.signInWithProvider(new firebase.auth.GoogleAuthProvider());
-  },
+    trigger(eName, ...arg) {
+      (this._watchers[eName] || []).forEach(c => c.call(this, ...arg));
+    },
 
-  signInWithProvider() {
-    return FirebaseApp.auth().signInWithRedirect(...arguments);
-  }
+    /* Methods */
+    signOut(...props) {
+      return FirebaseApp.auth().signOut().then(...props);
+    },
 
-};
-FirebaseApp.auth().onAuthStateChanged(async user => {
-  let prevUser = Auth.user;
+    signIn() {
+      return this.signInWithProvider(new firebase.auth.GoogleAuthProvider());
+    },
 
-  if (prevUser && !user || !prevUser && user) {
-    if (user) {
-      Auth.user = user.providerData[0];
-      Auth.trigger('signIn', Auth.user);
-    } else Auth.trigger('signOut', prevUser);
-  }
+    signInWithProvider() {
+      return FirebaseApp.auth().signInWithRedirect(...arguments);
+    }
 
-  Auth.trigger('statusChanged', Auth.user);
-});
-export default Auth;
+  };
+}
+;

@@ -1,5 +1,8 @@
 {
     "package": {
+      "scripts":{
+        "update-auroa":"npm update @arcaela/aurora"
+      },
       "dependencies": {
         "web-vitals": "^1.0.1",
         "prop-types": "^15.7.2",
