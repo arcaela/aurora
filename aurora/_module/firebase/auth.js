@@ -1,4 +1,4 @@
-import firebase from './index';
+import { firebase } from './index';
 import 'firebase/auth';
 const FirebaseApp = firebase.apps.length?firebase.app('auth'):null;
 /*

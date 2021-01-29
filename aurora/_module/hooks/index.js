@@ -1,2 +1,2 @@
-export * from './useRoutes'
+export * from './useRoute'
 export * from './useTheme'

@@ -1,4 +1,7 @@
 import React from 'react';
+export * from './firebase';
+export * from './hooks';
+export * from './JavaScript';
 import { useTheme } from './hooks/useTheme';
 import { RouteProvider } from './hooks/useRoute';
 import { BrowserRouter } from 'react-router-dom';

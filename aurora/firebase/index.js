@@ -1,5 +1,5 @@
 import firebase from 'firebase/app';
-import Auth from './auth';
+export * from './auth';
 
 function FirebaseLoad(credentials) {
   if (!Object.keys(credentials)) return;
@@ -11,4 +11,4 @@ function FirebaseLoad(credentials) {
   return firebase;
 }
 
-export { Auth, firebase, FirebaseLoad };
+export { firebase, FirebaseLoad };
