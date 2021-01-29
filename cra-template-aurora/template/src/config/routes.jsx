@@ -24,13 +24,13 @@ import Welcome from '../views/welcome'
 */
 
 Route('/', Welcome);
-Route('/:documentation', (req)=>{
-    const urls = {
-        firebase:'https://firebase.google.com/docs',
-        react:'https://es.reactjs.org/docs/getting-started.html',
-        material:'https://material-ui.com/es/getting-started/installation/',
-    };
-    setTimeout(()=>(window.location.href=urls[req.params.documentation]), 2000);
+Route('/:documentation', ()=>{
+    // const urls = {
+    //     firebase:'https://firebase.google.com/docs',
+    //     react:'https://es.reactjs.org/docs/getting-started.html',
+    //     material:'https://material-ui.com/es/getting-started/installation/',
+    // };
+    // setTimeout(()=>(window.location.href=urls[req.params.documentation]), 2000);
     return (<span>Saliendo de aurora, por favor espere...</span>);
 });
 // Route('/', <Welcome />);
