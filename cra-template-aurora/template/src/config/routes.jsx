@@ -24,7 +24,7 @@ import Welcome from '../views/welcome'
 */
 
 Route('/', Welcome);
-Route('/:documentation', ()=>{
+Route('/:documentation', (req)=>{
     const urls = {
         firebase:'https://firebase.google.com/docs',
         react:'https://es.reactjs.org/docs/getting-started.html',
