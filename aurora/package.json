@@ -1,6 +1,6 @@
 {
   "name": "@arcaela/aurora",
-  "version": "1.0.9",
+  "version": "1.0.23",
   "description": "The aurora.js is a library for Webs Apps | Build with ReactJS.",
   "author": "arcaela.reyes@gmail.com",
   "license": "ISC",
@@ -20,7 +20,7 @@
   },
   "scripts": {
     "update-publish": "npm version patch && npm publish --access=public",
-    "prepare": "npx babel ./exports/ --out-dir ./",
+    "prepare": "npx babel ./_module/ --out-dir ./",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "bugs": {
@@ -28,6 +28,7 @@
   },
   "homepage": "https://github.com/arcaela/aurora#readme",
   "dependencies": {
+    "lodash": "latest",
     "firebase": "^8.2.1",
     "firebaseui": "^4.7.1",
     "path-to-regex": "^1.3.8",

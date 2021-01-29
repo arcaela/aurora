@@ -1,4 +1,4 @@
-import { set, get } from 'arcaela/BrowserDB/node_modules/lodash';
+import { set, get } from 'lodash';
 
 const is_snap = o => o instanceof Snapshot;
 

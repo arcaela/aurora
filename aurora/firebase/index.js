@@ -1,12 +1,12 @@
 import firebase from 'firebase/app';
-export { default as auth } from './auth';
-export { default as storage } from './storage';
-export { default as database } from './database';
+import Auth from './auth';
 
-firebase.allow = credentials => {
+function FirebaseLoad(credentials) {
   for (const key in credentials) firebase.initializeApp({ ...credentials['[DEFAULT]'],
     ...credentials[key]
   }, key);
-};
 
-export default firebase;
+  return firebase;
+}
+
+export { Auth, firebase, FirebaseLoad };

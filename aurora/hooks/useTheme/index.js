@@ -33,4 +33,4 @@ function useTheme() {
 
 ;
 export default useTheme;
-export { Theme };
+export { Theme, useTheme };

@@ -1,5 +1,5 @@
-import ArcaelaAxiosDriver from 'arcaela/js/AsyncXHR/drivers/ArcaelaAxiosDriver';
-import ArcaelaFetchDriver from 'arcaela/js/AsyncXHR/drivers/ArcaelaFetchDriver';
+import ArcaelaAxiosDriver from './drivers/ArcaelaAxiosDriver';
+import ArcaelaFetchDriver from './drivers/ArcaelaFetchDriver';
 
 export default (function(){
     class AsyncXHR{

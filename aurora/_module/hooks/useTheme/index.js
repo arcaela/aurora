@@ -21,4 +21,5 @@ function useTheme(){
 export default useTheme;
 export {
     Theme,
+    useTheme,
 };

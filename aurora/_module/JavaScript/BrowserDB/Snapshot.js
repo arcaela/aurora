@@ -1,4 +1,4 @@
-import { set, get } from 'arcaela/BrowserDB/node_modules/lodash';
+import { set, get } from 'lodash';
 const is_snap = (o)=>(o instanceof Snapshot);
 const path = (key)=>key.toString().replace(/\/+/gi,'.');
 const is_obj = (o)=>(o&&typeof o==='object'&&!Array.isArray(o));
