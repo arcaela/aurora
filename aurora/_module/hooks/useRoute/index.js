@@ -21,16 +21,18 @@ function Route(path, render=null){
     return _ob_;
 };
 Route.fallback = fallback=>(Provider.fallback=fallback);
+Route.redirect = (from,to)=>Route(from).redirect(to);
+
 function RouteProvider(){
     return (<Switch>
         {Provider.routes.map(({ json }, key)=>{
-            const { path, redirect, render, ...props} = json();
+            const { path, redirect, render, exact=true, ...props} = json();
             const RenderComponent = render;
-            if( redirect ) return <RedirectComponent from={path} to={redirect} {...props} key={key} />;
+            if( redirect ) return <RedirectComponent from={path} to={redirect} exact={exact} {...props} key={key} />;
             if( typeof RenderComponent === 'object' && typeof RenderComponent.$$typeof == 'symbol' )
-                return (<RouteComponent {...props} render={()=>RenderComponent} key={key} />);
+                return (<RouteComponent path={path} exact={exact} {...props} children={RenderComponent} key={key} />);
             // if(render.prototype && render.prototype.isReactComponent)
-                return <RouteComponent path={path} {...props} render={(request)=><RenderComponent {...request} />} key={key} />
+                return <RouteComponent path={path} exact={exact} {...props} render={(request)=><RenderComponent redirect={request.history.replace} params={request.match.params} {...request} />} key={key} />
         })}
         <RouteComponent children={Provider.fallback} />
     </Switch>);

@@ -29,6 +29,8 @@ function Route(path, render = null) {
 
 Route.fallback = fallback => Provider.fallback = fallback;
 
+Route.redirect = (from, to) => Route(from).redirect(to);
+
 function RouteProvider() {
   return /*#__PURE__*/React.createElement(Switch, null, Provider.routes.map(({
     json
@@ -37,24 +39,33 @@ function RouteProvider() {
       path,
       redirect,
       render,
+      exact = true,
       ...props
     } = json();
     const RenderComponent = render;
     if (redirect) return /*#__PURE__*/React.createElement(RedirectComponent, _extends({
       from: path,
-      to: redirect
+      to: redirect,
+      exact: exact
     }, props, {
       key: key
     }));
-    if (typeof RenderComponent === 'object' && typeof RenderComponent.$$typeof == 'symbol') return /*#__PURE__*/React.createElement(RouteComponent, _extends({}, props, {
-      render: () => RenderComponent,
+    if (typeof RenderComponent === 'object' && typeof RenderComponent.$$typeof == 'symbol') return /*#__PURE__*/React.createElement(RouteComponent, _extends({
+      path: path,
+      exact: exact
+    }, props, {
+      children: RenderComponent,
       key: key
     })); // if(render.prototype && render.prototype.isReactComponent)
 
     return /*#__PURE__*/React.createElement(RouteComponent, _extends({
-      path: path
+      path: path,
+      exact: exact
     }, props, {
-      render: request => /*#__PURE__*/React.createElement(RenderComponent, request),
+      render: request => /*#__PURE__*/React.createElement(RenderComponent, _extends({
+        redirect: request.history.replace,
+        params: request.match.params
+      }, request)),
       key: key
     }));
   }), /*#__PURE__*/React.createElement(RouteComponent, {
