@@ -1,14 +1,25 @@
 {
     "package": {
       "scripts":{
-        "update-auroa":"npm update @arcaela/aurora"
+        "arc-build": "craco build",
+        "arc-start": "craco start",
+        "arc-update":"npm update @arcaela/aurora",
+        "firebase-deploy": "npm run arc-build && firebase deploy --only hosting"
       },
       "dependencies": {
+        "clsx": "^1.1.1",
+        "lodash": "^4.17.20",
+        "firebase": "^8.2.3",
         "web-vitals": "^1.0.1",
         "prop-types": "^15.7.2",
+        "@craco/craco": "^6.1.1",
         "@arcaela/aurora": "latest",
         "react-router-dom": "^5.2.0",
+        "@material-ui/core": "^4.11.2",
+        "@material-ui/icons": "^4.11.2",
         "@testing-library/react": "^11.1.0",
+        "babel-plugin-root-import": "^6.6.0",
+        "@material-ui/lab": "^4.0.0-alpha.57",
         "@testing-library/jest-dom": "^5.11.4",
         "@testing-library/user-event": "^12.1.10"
       },

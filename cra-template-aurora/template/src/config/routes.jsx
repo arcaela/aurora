@@ -1,5 +1,4 @@
-import { Route } from '@arcaela/aurora/hooks';
-import Welcome from '../views/welcome'
+const { Route } = require('@arcaela/aurora/hooks');
 /*
     El uso de Route está designado a la construcción de Vistas dinámicas
     con renderizado en tiempo real;
@@ -22,8 +21,7 @@ import Welcome from '../views/welcome'
     - Las rutas son incorporadas en el orden que son declaradas.
     - Las rutas nuevas sobreescriben las previas.
 */
-
-Route('/', Welcome);
+Route('/', require('~/views/welcome').default);
 Route('/:documentation', (req)=>{
     const urls = {
         firebase:'https://firebase.google.com/docs',
