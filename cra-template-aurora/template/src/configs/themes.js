@@ -1,4 +1,4 @@
-import { Theme } from '~/aurora';
+import { Theme } from '@arcaela/aurora-js';
 /*
     Puedes utilizar la misma estructura de Material-UI en createMuiTheme()
     En caso de no conseguir un Tema será por defecto DEFAULT

@@ -1,4 +1,4 @@
-const { Route } = require('~/aurora');
+const { Route } = require('@arcaela/aurora-js');
 /*
     El uso de Route está designado a la construcción de Vistas dinámicas
     con renderizado en tiempo real;
