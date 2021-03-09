@@ -17,6 +17,7 @@
         "path-to-regex": "^1.3.8",
         "react-router-dom": "^5.2.0",
         "@material-ui/core": "^4.11.2",
+        "@arcaela/tools": "latest",
         "@arcaela/aurora-js": "latest",
         "@material-ui/icons": "^4.11.2",
         "babel-plugin-root-import": "^6.6.0",
