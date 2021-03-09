@@ -1,7 +1,6 @@
 import React from 'react'
-export * from './firebase'
 export * from './hooks'
-export * from './JavaScript'
+export * from './firebase'
 
 import { useTheme } from './hooks/useTheme';
 import { RouteProvider } from './hooks/useRoute';
