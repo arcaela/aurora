@@ -1,10 +1,10 @@
 {
   "name": "@arcaela/tools",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Some tools to quick build JavaScript applications.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "update-publish": "npm version patch && npm publish --access=public"
   },
   "repository": {
     "type": "git",
