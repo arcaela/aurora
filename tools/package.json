@@ -1,0 +1,16 @@
+{
+  "name": "@arcaela/tools",
+  "version": "1.0.0",
+  "description": "Some tools to quick build JavaScript applications.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/arcaela/aurora",
+    "directory": "tools"
+  },
+  "author": "arcaela.reyes@gmail.com",
+  "license": "ISC"
+}
