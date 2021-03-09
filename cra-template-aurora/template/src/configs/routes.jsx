@@ -21,7 +21,7 @@ const { Route } = require('@arcaela/aurora/hooks');
     - Las rutas son incorporadas en el orden que son declaradas.
     - Las rutas nuevas sobreescriben las previas.
 */
-Route('/', require('~/views/welcome').default);
+Route('/', require('~/pages/Welcome').default);
 Route('/:documentation', (req)=>{
     const urls = {
         firebase:'https://firebase.google.com/docs',

@@ -1,5 +1,9 @@
 import { firebase, FirebaseLoad } from '@arcaela/aurora/firebase'
+import 'firebase/auth'
+import 'firebase/firestore'
 FirebaseLoad({
-    // '[DEFAULT]':{}
+
+  
 });
+
 export default firebase;
