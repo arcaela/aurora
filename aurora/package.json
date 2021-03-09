@@ -1,6 +1,6 @@
 {
   "name": "@arcaela/aurora-js",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "The aurora is a library for Webs Apps | Build with ReactJS.",
   "author": "arcaela.reyes@gmail.com",
   "license": "ISC",
@@ -20,7 +20,7 @@
   },
   "scripts": {
     "update-publish": "npm version patch && npm publish --access=public",
-    "prepare": "npx babel ./_module/ --out-dir ./",
+    "prepare": "npx babel ./core/ --out-dir ./",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "bugs": {
