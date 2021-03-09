@@ -1,5 +1,5 @@
 import Snapshot from './Snapshot'
-export default function BrowserDB(props={}, success=null){
+export default function AuroraDB(props={}, success=null){
     const options = {
         name:null,
         onBlocked:null,
@@ -13,18 +13,18 @@ export default function BrowserDB(props={}, success=null){
         ...(typeof props==='string'?{name:props}:props),
     };
     return new Promise((Resolved, Failed)=>{
-        const Server = window.indexedDB.open('BrowserDB@server', 7);
+        const Server = window.indexedDB.open('AuroraDB@server', 7);
         Server.onblocked = (event)=>Failed(['connection_blocked', event]);
         Server.onerror = (event)=>Failed(['connection_failed', event]);
         Server.onupgradeneeded =  (event)=>{
             const _database = event.target.result;
-            if(!_database.objectStoreNames.contains('BrowserDB@buckets'))
-                _database.createObjectStore('BrowserDB@buckets',{keyPath:'name',unique:true});
+            if(!_database.objectStoreNames.contains('AuroraDB@buckets'))
+                _database.createObjectStore('AuroraDB@buckets',{keyPath:'name',unique:true});
             options.onUpgrade(_database, event);
         };
         Server.onsuccess = event=>{
             const $connection = event.target.result,
-                Stores = $connection.transaction(['BrowserDB@buckets'], 'readwrite').objectStore('BrowserDB@buckets'),
+                Stores = $connection.transaction(['AuroraDB@buckets'], 'readwrite').objectStore('AuroraDB@buckets'),
                 Bucket = Stores.get(options.name);
             Bucket.onerror = event=>Failed(['snapshot_get',event]);
             Bucket.onsuccess = async ({target})=>{
