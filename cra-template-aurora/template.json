@@ -2,10 +2,10 @@
     "package": {
       "scripts":{
         "build": "craco build",
-        "start-dev": "craco start",
-        "start-prod": "serve -s build",
-        "hosting-deploy": "craco build && firebase deploy --only hosting",
-        "update-arcaela": "npm update @arcaela/aurora"
+        "start": "craco start",
+        "http": "serve -s build",
+        "update-arcaela": "npm update @arcaela/aurora-js",
+        "firebase-deploy": "craco build && firebase deploy --only hosting"
       },
       "dependencies": {
         "clsx": "^1.1.1",

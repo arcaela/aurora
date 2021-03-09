@@ -1,4 +1,4 @@
-const { Route } = require('@arcaela/aurora/hooks');
+const { Route } = require('~/aurora');
 /*
     El uso de Route está designado a la construcción de Vistas dinámicas
     con renderizado en tiempo real;
