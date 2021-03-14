@@ -1,12 +1,15 @@
 import firebase from 'firebase/app';
 export * from './auth';
+const $apps = {};
 
-function FirebaseLoad(credentials) {
-  if (!Object.keys(credentials)) return;
-
-  for (const key in credentials) firebase.initializeApp({ ...credentials['[DEFAULT]'],
-    ...credentials[key]
-  }, key);
+function FirebaseLoad(_ob_) {
+  for (const key in _ob_) {
+    const value = _ob_[key];
+    if (!(key in $apps)) firebase.initializeApp($apps[key] = { ...$apps['[DEFAULT]'],
+      ..._ob_['[DEFAULT]'],
+      ...(typeof value === 'string' ? _ob_[value] || $apps[value] : _ob_[key])
+    }, key);
+  }
 
   return firebase;
 }
