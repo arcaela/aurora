@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { createMuiTheme } from '@material-ui/core';
-export const ThemeState = {
+export const Theme = {
   $all: {},
   $theme: null,
   DEFAULT_THEME: createMuiTheme({}),
@@ -18,16 +18,16 @@ export const ThemeState = {
   }
 
 };
-export default function Theme() {
-  const [theme, setTheme] = useState(ThemeState.theme);
-  ThemeState.$theme = theme;
+export function useTheme() {
+  const [theme, setTheme] = useState(Theme.theme);
+  Theme.$theme = theme;
 
-  ThemeState.use = key => {
-    if (key && key in ThemeState.$all) ThemeState.$theme = ThemeState.$all[key];
-    return setTheme(ThemeState.theme);
+  Theme.use = key => {
+    if (key && key in Theme.$all) Theme.$theme = Theme.$all[key];
+    return setTheme(Theme.theme);
   };
 
-  return ThemeState;
+  return Theme;
 }
 ;
-export { Theme };
+export default Theme;
