@@ -1,6 +1,6 @@
 import { firebase } from './index';
 import 'firebase/auth';
-const FirebaseApp = firebase.apps.length ? firebase.app('auth') : null;
+const FirebaseApp = firebase.app('auth') || firebase;
 /*
     Para hacer uso de 'auth' con firebase es necesario importar sus claves en el archivo de credenciales.
     Una vez incluidas las claves solo se hará uso como variable estática
