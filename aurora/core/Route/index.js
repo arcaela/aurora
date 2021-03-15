@@ -10,9 +10,9 @@ const Provider = {
 
 function Route(path, render=null){
     const route = new Proxy({},{
-        get:(_, key)=>key==='json'?()=>_:(key==='match'
-            ?(new pathToRegex(_.path)).match
-            :(value)=>(_[key]=value,_))
+        get:(...[,key])=>key==='json'?()=>route:(key==='match'
+            ?(new pathToRegex(route.path)).match
+            :(value)=>(route[key]=value,route))
     });
     Provider.routes.push(route.path(path).render(render));
     return route;
