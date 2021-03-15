@@ -4,7 +4,7 @@
         "build": "craco build",
         "start": "craco start",
         "http": "serve -s build",
-        "update-arcaela": "npm update @arcaela/aurora",
+        "arcaela-aurora": "npm update @arcaela/aurora",
         "firebase-deploy": "craco build && firebase deploy --only hosting"
       },
       "dependencies": {
