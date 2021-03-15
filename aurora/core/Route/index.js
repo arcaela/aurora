@@ -1,30 +1,22 @@
 import React from 'react'
 import pathToRegex from 'path-to-regex'
-import { Switch, BrowserRouter, Route as RouteComponent, Redirect as RedirectComponent } from 'react-router-dom';
-
+import {
+    Switch,
+    BrowserRouter,
+    Route as RouteComponent,
+    Redirect as RedirectComponent,
+} from 'react-router-dom';
 
 const Provider = {
     routes:[],
     fallback:()=>(<span>404</span>),
 };
 
-function Route(path, render=null){
-    const route = new Proxy({},{
-        get:(...[,key])=>key==='json'?()=>route:(key==='match'
-            ?(new pathToRegex(route.path)).match
-            :(value)=>(route[key]=value,route))
-    });
-    Provider.routes.push(route.path(path).render(render));
-    return route;
-};
-Route.fallback = fallback=>(Provider.fallback=fallback);
-Route.redirect = (from,to)=>Route(from).redirect(to);
-
 function RouteProvider(){
     return (<BrowserRouter>
         <Switch>
-            {Provider.routes.map((route, key)=>{
-                const { path, redirect, render, exact=true, ...props} = route;
+            {Provider.routes.map(({ json }, key)=>{
+                const { path, redirect, render, exact=true, ...props} = json();
                 const RenderComponent = render;
                 if( redirect ) return <RedirectComponent from={path} to={redirect} exact={exact} {...props} key={key} />;
                 if( typeof RenderComponent === 'object' && typeof RenderComponent.$$typeof == 'symbol' )
@@ -35,6 +27,19 @@ function RouteProvider(){
         </Switch>
     </BrowserRouter>);
 };
+
+export default function Route(path, render=null){
+    const route = new Proxy({}, {
+        get:(_, key)=>key==='json'?()=>_:(key==='match'?(new pathToRegex(_.path)).match
+            :(key==='provider'?_.Provider
+                :(value)=>(route[key]=value, flush()))),
+    });
+    const flush = ()=>route;
+    Provider.routes.push( route.path(path).render(render) );
+    return route;
+};
+Route.fallback = fallback=>(Provider.fallback=fallback);
+Route.redirect = (from,to)=>Route(from).redirect(to);
 
 
 export { Route, Provider, RouteProvider, };

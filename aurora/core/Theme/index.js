@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { createMuiTheme } from '@material-ui/core';
-
-export const Theme = {
+const Theme = {
     $all:{},
     $theme:null,
     DEFAULT_THEME:createMuiTheme({}),
@@ -9,8 +8,7 @@ export const Theme = {
     create(key, props){ return this.$all[key] = createMuiTheme(props); },
     use(key){ return (key in this.$all)?(this.$theme=this.$all[key]):null; },
 };
-
-export function useTheme(){
+function useTheme(){
     const [ theme, setTheme ] = useState(Theme.theme);
     Theme.$theme = theme;
     Theme.use = (key)=>{
@@ -20,6 +18,8 @@ export function useTheme(){
     };
     return Theme;
 };
-
-
-export default Theme;
+export default useTheme;
+export {
+    Theme,
+    useTheme,
+};
