@@ -4,7 +4,7 @@
         "build": "craco build",
         "start": "craco start",
         "http": "serve -s build",
-        "update-arcaela": "npm update @arcaela/aurora-js",
+        "update-arcaela": "npm update @arcaela/aurora",
         "firebase-deploy": "craco build && firebase deploy --only hosting"
       },
       "dependencies": {
@@ -18,7 +18,7 @@
         "react-router-dom": "^5.2.0",
         "@material-ui/core": "^4.11.2",
         "@arcaela/tools": "latest",
-        "@arcaela/aurora-js": "latest",
+        "@arcaela/aurora": "latest",
         "@material-ui/icons": "^4.11.2",
         "babel-plugin-root-import": "^6.6.0",
         "@material-ui/lab": "^4.0.0-alpha.57"
