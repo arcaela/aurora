@@ -1,4 +1,4 @@
-module.exports.default = require('~/ServerLess/libs/api').default.load([
+module.exports.default = require('@arcaela/server').api.load([
     
     require('./auth'),
 

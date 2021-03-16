@@ -1,5 +1,6 @@
 import { merge, get } from 'lodash';
 import pathToRegex from 'path-to-regex';
+import $store from './store';
 
 function reduce(arr, prefix=''){
     if(Array.isArray(arr)) return reduce(merge(...arr));
@@ -13,8 +14,8 @@ function reduce(arr, prefix=''){
     },{});
 }
 
-const endPoints = {};
 export default function api(path, ...props){
+    const endPoints = $store.get('api.routes', {});
     path = (path.match(/:?\w+/gi)?.join('.') || path).toLowerCase();
     let params=null;
     let route = get(endPoints, path, null) || Object.values(endPoints).find(_route=>{
@@ -24,4 +25,4 @@ export default function api(path, ...props){
     }) || {props,callback:()=>Promise.reject({code:404,message:'ROUTE_NOT_FOUND'})};
     return route.callback(...props);
 }
-api.load = (endPoints)=>merge(endPoints, reduce(endPoints));
+api.load = (routes)=>$store.merge({api:{routes:reduce(routes)}});
