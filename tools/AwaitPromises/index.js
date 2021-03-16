@@ -56,5 +56,5 @@ class AwaitPromises {
     }
 }
 AwaitPromises.resolve = (data)=>new AwaitPromises(res=>res(data));
-AwaitPromises.reject = (data)=>new AwaitPromises((res,rej)=>rej(data));
+AwaitPromises.reject = (data)=>new AwaitPromises((...[,rej])=>rej(data));
 export default AwaitPromises;
