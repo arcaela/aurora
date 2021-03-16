@@ -1,8 +1,8 @@
-# aurora for ReactJS App
+# Aurora for ReactJS App
 
-This folder was bootstrapped with [aurora for React](https://github.com/arcaela/aurora).
+This folder was bootstrapped with [Aurora for React](https://github.com/arcaela/aurora/tree/master/core).
 
-## ¿Why aurora?
+## ¿Why Aurora?
 
 This template was built to reduce setup time, facilitate a work structure and implement useful development tools.
 
@@ -10,18 +10,13 @@ This template was built to reduce setup time, facilitate a work structure and im
 
 Google has become the port of technology today, this allows us to get multiple development tools on the same platform.
 
-With this in mind, the development team behind aurora, have dedicated ourselves to building our own development methodologies based on Google tools.
+With this in mind, the development team behind Aurora, have dedicated ourselves to building our own development methodologies based on Google tools.
 
-### ¿ Why Material-UI ?
+### ¿Why Material-UI?
 If you are a lover of modernity and are familiar with technology, you will find the use of Material-UI very familiar to support the design of your applications.
 
 ### ¿Why choose Firebase?
 We cannot say enough about its advantages, but we invite you to read the Internet Giant's proposal on its official [Firebase site.](https://firebase.google.com/)
-
-
-### ¿How is build ServerLess?
-Yo can read documentation of this section in [ServerLEss Documentation](./src/ServerLess/README.md)
-
 
 
 
