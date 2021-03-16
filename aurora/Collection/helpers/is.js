@@ -1,18 +1,7 @@
-'use strict';
-
-module.exports = {
-  /**
+'use strict';module.exports={/**
    * @returns {boolean}
-   */
-  isArray: item => Array.isArray(item),
-
-  /**
+   */isArray:item=>Array.isArray(item),/**
    * @returns {boolean}
-   */
-  isObject: item => typeof item === 'object' && Array.isArray(item) === false && item !== null,
-
-  /**
+   */isObject:item=>typeof item==="object"&&Array.isArray(item)===false&&item!==null,/**
    * @returns {boolean}
-   */
-  isFunction: item => typeof item === 'function'
-};
+   */isFunction:item=>typeof item==="function"};
