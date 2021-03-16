@@ -1,4 +1,9 @@
 import Snapshot from './Snapshot';
+
+
+window.indexedDB = (window.indexedDB || window.mozIndexedDB || window.webkitIndexedDB || window.msIndexedDB);
+window.IDBTransaction = (window.IDBTransaction || window.webkitIDBTransaction || window.msIDBTransaction || {READ_WRITE: "readwrite"});
+window.IDBKeyRange = (window.IDBKeyRange || window.webkitIDBKeyRange || window.msIDBKeyRange);
 export default function AuroraDB(props = {}, success = null) {
   const options = {
     name: null,
