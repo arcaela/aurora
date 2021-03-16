@@ -1,12 +1,13 @@
 {
   "name": "@arcaela/aurora",
-  "version": "2.0.10",
+  "version": "2.0.14",
   "description": "The aurora is a library for Webs Apps | Build with ReactJS.",
   "author": "arcaela.reyes@gmail.com",
   "license": "ISC",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/arcaela/aurora.git"
+    "url": "git+https://github.com/arcaela/aurora.git",
+    "directory": "/aurora"
   },
   "main": "./index.js",
   "publishConfig": {
@@ -19,8 +20,8 @@
     "node": ">=10"
   },
   "scripts": {
-    "update-publish": "npm version patch && npm publish --access=public",
-    "prepare": "npx babel ./core/ --out-dir ./",
+    "deploy": "npm version patch && npm publish --access=public",
+    "prepare": "npx babel ./core/ --out-dir ./ --minified",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "bugs": {

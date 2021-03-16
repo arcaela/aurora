@@ -1,5 +1,1 @@
-'use strict';
-
-module.exports = function pipe(fn) {
-  return fn(this);
-};
+'use strict';module.exports=function pipe(fn){return fn(this)};
