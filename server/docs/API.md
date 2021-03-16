@@ -1,11 +1,11 @@
-# [Documentación](../README.md)
+# [Documentación](../../README.md)
 
 ## Api | Function
 La función **api** es un helper que permite la estructuración de canales y rutas para solicitudes cliente/servidor,
 para su configuración solo se requiere importar la función y hacer uso de su propiedad **.load**.
 
 ```javascript
-    import { api } from '~/ServerLess'
+    import { api } from '@arcaela/server'
 
     // Si quieres anexar un objeto en rutas sería:
     api.load({
@@ -29,7 +29,7 @@ Asumiendo que la ruta indicada es dinámica, la función a ejecutar recibiría d
 
 
 ```javascript
-import { api } from '~/ServerLess';
+import { api } from '@arcaela/server';
 
 api.load({
     // api('feed')
