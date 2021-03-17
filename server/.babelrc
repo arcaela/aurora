@@ -1,7 +1,12 @@
 {
+  "presets": [ "@babel/preset-env" ],
   "plugins": [
     "@babel/plugin-transform-react-jsx",
     "@babel/plugin-syntax-class-properties",
-    "@babel/plugin-proposal-class-properties"
+    "@babel/plugin-proposal-class-properties",
+    "@babel/plugin-proposal-optional-chaining",
+    ["module-resolver", {
+      "alias": { "~": "./src/" }
+    }]
   ]
 }
