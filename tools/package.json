@@ -1,6 +1,6 @@
 {
   "name": "@arcaela/tools",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Some tools to quick build JavaScript applications.",
   "main": "index.js",
   "scripts": {
