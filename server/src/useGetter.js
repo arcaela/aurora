@@ -14,21 +14,19 @@ export default function useGetter(_ob_, _events){
             let path=key.split('.')[0];
             this.onSet(_ob_, key, value);
             set(_ob_, key, value);
-            if(!(path in getter))
-            Object.defineProperty(getter, path ,{
+            if(!(path in executor))
+            Object.defineProperty(executor, path ,{
                 enumerable:true,
-                get:()=>getter(key),
-                set:(value)=>getter(key,value),
+                get:()=>executor(key),
+                set:(value)=>executor(key,value),
             });
             this.onUpdate(_ob_);
             return value;
         },
     });
-    const getter = (key,...props)=>{
-        return (props.length)?_module.set(key, props[0]):_module.get(key);
-    };
-    return Object.defineProperties(getter, Object.keys(_ob_).reduce((properties, key)=>{
-        properties[key]={enumerable:true, get:()=>getter(key), set:(value)=>getter(key,value)};
+    const executor = (key,...props)=>((props.length)?_module.set(key, props[0]):_module.get(key));
+    return Object.defineProperties(executor, Object.keys(_ob_).reduce((properties, key)=>{
+        properties[key]={enumerable:true, get:()=>executor(key), set:(value)=>executor(key,value)};
         return properties;
     },{}));
 }
