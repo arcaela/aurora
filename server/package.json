@@ -1,5 +1,5 @@
 {
-    "version": "1.0.21",
+    "version": "1.0.24",
     "main": "./dist/index.js",
     "name": "@arcaela/server",
     "description": "Toolkit for building backend applications using the front-end.",
@@ -7,7 +7,7 @@
         "patch": "npm version patch",
         "@publish": "npm publish --access=public",
         "@deploy": "npm run patch && npm run @publish",
-        "prepare": "set NODE_ENV=production && npx babel ./src/ --out-dir ./dist/"
+        "prepare": "set NODE_ENV=production && npx babel ./src/ --out-dir ./dist/ --minified"
     },
     "repository": {
         "type": "git",

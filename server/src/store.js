@@ -1,10 +1,14 @@
 import { get, set, merge } from 'lodash'
 
-const $store = {
+window.$aurora = window.$aurora || {};
+
+window.$aurora.$store = {
     values:{},
-    get(...props){ return get(this, ...props) },
-    set(...props){ return set(this, ...props) },
-    merge(...props){ return merge(this, ...props) },
+    get(...props){ return get(this.values, ...props) },
+    set(...props){ return set(this.values, ...props) },
+    merge(...props){ return merge(this.values, ...props) },
 };
 
+
+const $store = window.$aurora.$store;
 export default $store;
