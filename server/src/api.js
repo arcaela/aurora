@@ -5,7 +5,7 @@ function reduce(arr, prefix=''){
     if(Array.isArray(arr)) return reduce(merge(...arr));
     return Object.entries(arr).reduce((paths, [ path, callback ])=>{
         if(typeof callback==='object') return {...paths, ...reduce(callback, `${prefix}/${path}`)};
-        path=(`${prefix}/${path}`).match(/:?\w+/gi)?.join('.').toLowerCase();
+        path = (`${prefix}/${path}`).match(/[^\/]+/gi).join('/');
         return {
             ...paths,
             [path]:{ path, callback, regExp: new pathToRegex(path), },
@@ -14,7 +14,7 @@ function reduce(arr, prefix=''){
 }
 
 export default function api(path, ...props){
-    path = (path.match(/:?\w+/gi)?.join('.') || path).toLowerCase();
+    path = path.match(/[^\/]+/gi).join('/');
     let params=null;
     let route = get(api.routes, path, null) || Object.values(api.routes).find(_route=>{
         params = _route.regExp.match(path) || params;

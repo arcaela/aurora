@@ -1,5 +1,5 @@
 {
-    "version": "1.0.25",
+    "version": "1.0.31",
     "main": "./dist/index.js",
     "name": "@arcaela/server",
     "description": "Toolkit for building backend applications using the front-end.",
