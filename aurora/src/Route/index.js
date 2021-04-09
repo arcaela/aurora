@@ -17,11 +17,23 @@ function RouteProvider(){
         <Switch>
             {Provider.routes.map(({ json }, key)=>{
                 const { path, redirect, render, exact=true, ...props} = json();
-                const RenderComponent = render;
+                const ForRender = ({...request})=>{
+                    request.redirect = request.history.replace;
+                    request.params = {...request.match.params,...window.location.search.substring( window.location.search.indexOf('?')+1 ).split('&').reduce((params, param)=>{
+                        const prop = param.split('='),
+                            key = prop.splice(0,1),
+                            value = prop.join('=') || 'true';
+                        if(key.length)
+                            params[key] = (['null','false','true','undefined']).includes(value)?eval(value):decodeURIComponent(value);
+                        return params;
+                    },{})};
+                    const RenderComponent = render;
+                    return <RenderComponent {...request} />;
+                };
                 if( redirect ) return <RedirectComponent from={path} to={redirect} exact={exact} {...props} key={key} />;
-                if( typeof RenderComponent === 'object' && typeof RenderComponent.$$typeof == 'symbol' )
-                    return (<RouteComponent path={path} exact={exact} {...props} children={RenderComponent} key={key} />);
-                return <RouteComponent path={path} exact={exact} {...props} render={(request)=><RenderComponent redirect={request.history.replace} params={request.match.params} {...request} />} key={key} />
+                if( typeof render === 'object' && typeof render.$$typeof == 'symbol' )
+                    return (<RouteComponent path={path} exact={exact} {...props} children={render} key={key} />);
+                return <RouteComponent path={path} exact={exact} {...props} render={ForRender} key={key} />
             })}
             <RouteComponent children={Provider.fallback} />
         </Switch>
