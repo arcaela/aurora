@@ -1,0 +1,46 @@
+{
+  "name": "@arcaela/aurora-server",
+  "version": "1.0.1",
+  "description": "Aurora is not only a start-project for applications with ReactJS, it is also a Backend structure similar to Laravel and functional with NodeJS.",
+  "main": "src/main.js",
+  "bin": {
+    "aurora-server": "bin/index.js"
+  },
+  "files": [
+    "bin",
+    "src",
+    "jsconfig.json"
+  ],
+  "scripts": {
+    "start": "nodemon ./src/main.js",
+    "shared": "npm version patch && npm publish --access=public",
+    "serve": "node ./src/main.js --prod"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/arcaela/aurora.git",
+    "directory": "aurora-server"
+  },
+  "author": "arcaela.reyes@gmail.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/arcaela/aurora/issues"
+  },
+  "homepage": "https://github.com/arcaela/aurora#readme",
+  "dependencies": {
+    "@dword-design/functions": "^4.0.2",
+    "body-parser": "^1.19.0",
+    "commander": "^7.2.0",
+    "express": "^4.17.1",
+    "firebase-admin": "^9.6.0",
+    "jsonwebtoken": "^8.5.1",
+    "lodash": "^4.17.21",
+    "make-cli": "^2.0.3",
+    "mongodb": "^3.6.5",
+    "mongoose": "^5.12.3",
+    "mongoose-role": "^3.0.5",
+    "pluralize": "^8.0.0",
+    "shelljs": "^0.8.4",
+    "socket.io": "^4.0.1"
+  }
+}

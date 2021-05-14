@@ -50,13 +50,13 @@ export const empty=function(arr){
 
 export const setcookie=function (...name) {
     return name.length==0?undefined:(
-        this.cookie[name.length==1?'get':'set'](...name)
+        cookie[name.length==1?'get':'set'](...name)
     );
 };
-export const unsetcookie=function (name) { return this.cookie.remove(name); };
+export const unsetcookie=function (name) { return cookie.remove(name); };
 
 export const cookie = {
-    toSeconds: function (time = 3) {
+    toSeconds: function (time = 3,e=0) {
         time = empty(time) ? 0 : time;
         let now = new Date().getTime();
         time = !isNaN( parseInt( time ) ) ? (new Date().getTime() + time) : (
@@ -71,7 +71,7 @@ export const cookie = {
             + ("; max-age=" + this.toSeconds(time))
             + (path ? "; path=" + path : "")
             + (domain ? "; domain=" + domain : "")
-            + (https ? "; secure" : "");
+            + (https ? "; secure" : ""), value;
     },
     get: function (name) { return this.all[name]||undefined; },
     remove: function (name, ...server) {
