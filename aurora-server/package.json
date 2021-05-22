@@ -12,7 +12,7 @@
   ],
   "scripts": {
     "start": "nodemon ./index.js start --dev",
-    "serve": "nodemon ./index.js start --prod",
+    "serve": "node ./index.js start --prod",
     "shared": "npm version patch && npm publish --access=public"
   },
   "repository": {
