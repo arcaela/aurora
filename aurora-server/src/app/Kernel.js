@@ -1,9 +1,9 @@
 module.exports = {
     providers:{
         main:[
-            '~/app/providers/AppProvider',
+            // '~/app/providers/AppProvider',
             // '~/app/providers/DatabaseProvider',
-            '~/app/providers/RouteProvider',
+            // '~/app/providers/RouteProvider',
         ],
         daemons:[
             // Providers to execute after main Providers.
@@ -12,9 +12,9 @@ module.exports = {
     middlewares:{
         // Middlewares for execute before all routes
         main:[
-            '~/app/middlewares/Response',
+            // '~/app/middlewares/Response',
             // '~/app/middlewares/FirebaseHeader',
-            '~/app/middlewares/Input',
+            // '~/app/middlewares/Input',
         ],
     },
 };
