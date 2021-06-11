@@ -6,6 +6,5 @@ const mongoose = require("mongoose");
 *   https://mongoosejs.com/docs/models.html#compiling
 */
 module.exports = {
-    // posts: mongoose.model('Post', require('./Post')),
     users: mongoose.model('User', require('./User')),
 };
