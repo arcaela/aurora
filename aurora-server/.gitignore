@@ -20,5 +20,4 @@
 .env.production.local
 
 *-debug.log*
-private.*.json
 yarn-error.log*

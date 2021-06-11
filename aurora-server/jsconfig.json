@@ -2,7 +2,7 @@
   "compilerOptions": {
     "baseUrl": "./node_modules/",
       "paths": {
-        "~/*":["../src/*"]
+        "~/*":["../src/*"],
       }
   }
 }

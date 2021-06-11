@@ -3,9 +3,6 @@
   "version": "1.0.1",
   "description": "Aurora is not only a start-project for applications with ReactJS, it is also a Backend structure similar to Laravel and functional with NodeJS.",
   "main": "./index.js",
-  "bin": {
-    "aurora": "./index.js"
-  },
   "files": [
     "src",
     "jsconfig.json"
@@ -28,13 +25,17 @@
   "homepage": "https://github.com/arcaela/aurora#readme",
   "dependencies": {
     "body-parser": "^1.19.0",
+    "cli-table": "^0.3.6",
+    "colors": "^1.4.0",
     "commander": "^7.2.0",
     "express": "^4.17.1",
     "firebase-admin": "^9.6.0",
-    "glob": "^7.1.7",
     "lodash": "^4.17.21",
-    "mongodb": "^3.6.5",
+    "module-alias": "^2.2.2",
     "mongoose": "^5.12.3",
-    "socket.io": "^4.0.1"
+    "ora": "^5.4.1",
+    "socket.io": "^4.1.2",
+    "string-argv": "^0.3.1",
+    "uuid": "^8.3.2"
   }
 }
