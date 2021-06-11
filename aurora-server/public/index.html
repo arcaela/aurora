@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My Aplicación con Sockets</title>
+  <script src="/socket.io/socket.io.js"></script>
+</head>
+<body>
+    <h1>My App</h1>
+    <script>
+      var socket = io.connect('http://localhost:8080', { 'forceNew': true });
+      socket.on('message', data=>{
+          console.log(data);
+          setTimeout(()=>socket.emit('reply', "Hola, soy el Emily!"),2000);
+      });
+      // function render(data) {
+      //    var html = data.map(function(elem, index){
+      //        return(`<div>
+      //                 <strong>${elem.author}</strong>:
+      //                 <em>${elem.text}</em>
+      //        </div>`)
+      //    }).join(" ");
+      //    document.getElementById('messages').innerHTML = html;
+      // }
+      // socket.on('messages', function(data) {
+      //     render(data);
+      // });
+    </script>
+</body>
+</html>
