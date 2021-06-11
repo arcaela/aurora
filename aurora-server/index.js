@@ -1,4 +1,14 @@
 #!/usr/bin/env node
-module.exports = require('./src/vendor/utils').CLI(require(
-    require('path').resolve(__dirname, (`src/app/commands/${process.argv[2]||'start'}`).replace(':','/'))
-));
+require('./src/core/boot/global');
+require( aurora.paths.src("core/boot/Aliasses") );
+require( aurora.paths.src("core/boot/Command") );
+// require('~/core').Command.exec(...process.argv.slice(2));
+
+
+
+
+
+const { Storage } = require('~/core')
+
+
+Storage('aws', AmazonWS)
