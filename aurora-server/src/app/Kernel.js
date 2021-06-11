@@ -1,20 +1,15 @@
 module.exports = {
     providers:{
         main:[
-            // '~/app/providers/AppProvider',
-            // '~/app/providers/DatabaseProvider',
-            // '~/app/providers/RouteProvider',
+            '~/app/providers/AppProvider',
+            '~/app/providers/RouteProvider',
         ],
-        daemons:[
-            // Providers to execute after main Providers.
-        ],
+        daemons:[],
     },
-    middlewares:{
-        // Middlewares for execute before all routes
-        main:[
-            // '~/app/middlewares/Response',
-            // '~/app/middlewares/FirebaseHeader',
-            // '~/app/middlewares/Input',
-        ],
+    middlewares:[
+
+    ],
+    aliasses:{
+        // '@app':aurora.paths.src("app/"), // require('@app/models') = require('src/app/models')
     },
 };
