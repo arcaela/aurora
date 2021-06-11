@@ -11,8 +11,9 @@ module.exports = {
     host:'@host',
     path:'@path',
     options:{
-        useNewUrlParser: true,
-        useUnifiedTopology: true,
         useCreateIndex:true,
+        useNewUrlParser: true,
+        useFindAndModify:false,
+        useUnifiedTopology: true,
     },
 };
